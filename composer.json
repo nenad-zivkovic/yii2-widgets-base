@@ -1,6 +1,6 @@
 {
     "name": "nenad/yii2-widgets-base",
-    "description": "Collection of useful widgets for Yii2 application templates created by Nenad Z.",
+    "description": "Base classes and widgets for Yii2 application templates created by Nenad Z.",
     "keywords": ["yii2", "extension", "widget", "form"],
     "homepage": "https://github.com/nenad-zivkovic/yii2-widgets-base",
     "type": "yii2-extension",
