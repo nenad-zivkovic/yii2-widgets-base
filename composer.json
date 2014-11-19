@@ -1,8 +1,8 @@
 {
-    "name": "kartik-v/yii2-krajee-base",
-    "description": "Base library and foundation components for all Yii2 Krajee extensions.",
-    "keywords": ["yii2", "extension", "widget", "krajee", "base", "foundation"],
-    "homepage": "https://github.com/kartik-v/yii2-krajee-base",
+    "name": "nenad/yii2-widgets-base",
+    "description": "Collection of useful widgets for Yii2 application templates created by Nenad Z.",
+    "keywords": ["yii2", "extension", "widget", "form"],
+    "homepage": "https://github.com/nenad-zivkovic/yii2-widgets-base",
     "type": "yii2-extension",
     "license": "BSD 3-Clause",
     "authors": [
@@ -10,15 +10,15 @@
             "name": "Kartik Visweswaran",
             "email": "kartikv2@gmail.com",
             "homepage": "http://www.krajee.com/"
+        },
+        {
+            "name": "Nenad Zivkovic",
+            "email": "contact@freetuts.org"
         }
     ],
-    "minimum-stability": "stable",
-    "require": {
-        "yiisoft/yii2-bootstrap": "@dev"
-    },
     "autoload": {
         "psr-4": {
-            "kartik\\base\\": ""
+            "nenad\\": ""
         }
     }
 }

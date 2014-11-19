@@ -1,18 +1,8 @@
 <?php
+namespace nenad;
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @package yii2-krajee-base
- * @version 1.2.0
- */
-
-namespace kartik\base;
-
-/**
- * Base asset bundle for all widgets
- *
- * @author Kartik Visweswaran <kartikv2@gmail.com>
- * @since 1.0
+ * Base asset bundle for all widgets.
  */
 class AssetBundle extends \yii\web\AssetBundle
 {

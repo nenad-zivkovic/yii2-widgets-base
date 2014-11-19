@@ -1,35 +1,25 @@
 <?php
+namespace nenad;
 
-/**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @package yii2-krajee-base
- * @version 1.2.0
- */
-
-namespace kartik\base;
-
-use Yii;
 use yii\helpers\FormatConverter;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\ArrayHelper;
 use yii\web\JsExpression;
 use yii\web\View;
+use Yii;
 
 /**
  * Base input widget class for yii2-widgets
- *
- * @author Kartik Visweswaran <kartikv2@gmail.com>
- * @since 1.0
  */
 class InputWidget extends \yii\widgets\InputWidget
 {
     const LOAD_PROGRESS = '<div class="kv-plugin-loading">&nbsp;</div>';
 
     /**
-     * @var string the language configuration (e.g. 'fr-FR', 'zh-CN'). The format for the language/locale is 
-     * ll-CC where ll is a two or three letter lowercase code for a language according to ISO-639 and 
-     * CC is the country code according to ISO-3166.
+     * @var string the language configuration (e.g. 'fr-FR', 'zh-CN'). 
+     * The format for the language/locale is ll-CC where ll is a two or three letter lowercase code
+     * for a language according to ISO-639 and CC is the country code according to ISO-3166.
      * If this property not set, then the current application language will be used.
      */
     public $language;
@@ -90,6 +80,7 @@ class InputWidget extends \yii\widgets\InputWidget
      */
     protected $_lang = '';
 
+
     /**
      * @inheritdoc
      */
@@ -99,7 +90,7 @@ class InputWidget extends \yii\widgets\InputWidget
         if (!isset($this->language)) {
             $this->language = Yii::$app->language;
         }
-        $this->_lang = Config::getLang($this->language);
+        $this->_lang = $this->getLang($this->language);
         if ($this->pluginLoading) {
             $this->_loadIndicator = self::LOAD_PROGRESS;
         }
@@ -109,7 +100,7 @@ class InputWidget extends \yii\widgets\InputWidget
             $this->value = $this->model[Html::getAttributeName($this->attribute)];
         }
         $view = $this->getView();
-        WidgetAsset::register($view);
+        AssetBundle::register($view);
     }
 
     /**
@@ -311,5 +302,16 @@ class InputWidget extends \yii\widgets\InputWidget
         } else {
             throw InvalidConfigException("Error parsing '{$type}' format.");
         }
+    }
+
+    /**
+     * Convert a language string in yii\i18n format to 
+     * a ISO-639 format (2 or 3 letter code).
+     * @param string $language the input language string
+     * @return string
+     */
+    protected function getLang($language) {
+        $pos = strpos($language, "-");
+        return $pos > 0 ? substr($language, 0, $pos) : $language;
     }
 }
